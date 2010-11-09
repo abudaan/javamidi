@@ -1,0 +1,16 @@
+<project name="midibridge" basedir="path/to/classes/">
+
+  <target name="applet">
+    <exec executable="path/to/java/bin/jar.exe">
+      <arg line="-cf midiapplet.jar net/abumarkub/midi/applet/MidiApplet.class net/abumarkub/midi/MidiReceiver.class net/abumarkub/midi/MidiConfiguration.class net/abumarkub/midi/MidiDevices.class net/abumarkub/midi/IMidiDataConsumer.class" />
+    </exec>
+  </target>
+
+  <target name="service">
+    <exec executable="path/to/java/bin/jar.exe">
+      <arg line="-cfm midibridge.jar midibridge.mf net/" />
+    </exec>
+  </target>
+
+</project>
+

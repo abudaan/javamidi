@@ -1,0 +1,27 @@
+The term 'midibridge' includes all Java and Actionscript classes, and all Javascript, HTML and XML files that make it possible to receive midi events sent from your computer's midi system in a Flash app.
+
+This repository contains both the applet and the commandline version of the Java classes of the midibridge.
+
+The Actionscript classes can be found in the Actionscript repository at https://github.com/abudaan/flashmidi
+
+
+Both the applet and the commandline version use the same set of classes. The file create-jars.xml is an Ant build file that you can use to create the jar files. You have to replace the paths in this build file according to where jar is located on your machine.
+
+
+The only difference between the jar of the applet version and the jar of the commandline version is that you need to add the midiservice.mf manifest file for the commandline version. The manifest file tells the Java runtime which class is the main class and this allows you to run the commandline version by the following command:
+
+java -jar midiservice.jar
+
+Make sure java is added to your path!
+
+
+It is not necessary to add a manifest file to the jar of the applet version, because the main class is set as a parameter in the embed code. The embedding of the applet is done by the Javascript file flash-applet-bridge.js that you can find in the Actionscript repository in the folder /web/js
+
+
+The applet class is located /src/net/abumarkub/midi/applet/MidiApplet.java
+The commandline class is at /src/net/abumarkub/midi/service/MidiService.java
+
+These classes don't bite eachother so it is no problem if you add both to jar. This basically means that if you include all classes and the manifest file to the jar, you can use this jar for both the applet version and the commandline version.
+
+
+
